@@ -64,17 +64,20 @@ class TypecastBehavior extends AttributeTypecastBehavior
     {
         foreach($event->values as $key => $value)
         {
-            if (!$event->safeOnly || $this->owner->isAttributeSafe($key))
+            if (array_key_exists($key, $this->attributeTypes))
             {
-                $currentValue = $this->owner->{$key};
+                if (!$event->safeOnly || $this->owner->isAttributeSafe($key))
+                {
+                    $currentValue = $this->owner->{$key};
 
-                $this->owner->{$key} = $value;
+                    $this->owner->{$key} = $value;
 
-                $this->typecastAttributes([$key]);
+                    $this->typecastAttributes([$key]);
 
-                $event->values[$key] = $this->owner->{$key};
+                    $event->values[$key] = $this->owner->{$key};
 
-                $this->owner->{$key} = $currentValue;
+                    $this->owner->{$key} = $currentValue;
+                }
             }
         }
     }
