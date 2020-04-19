@@ -1,0 +1,20 @@
+{
+    "name": "denis909/yii2-typecast-behavior",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "denis909",
+            "email": "mail@denis909.spb.ru"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "denis909\\yii\\" : ""
+        }
+    },
+    "require": {
+        "denis909/yii2-attribute-typecast-behavior": "*",
+        "denis909/yii2-active-record": "*"
+    }
+}
