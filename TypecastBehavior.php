@@ -4,7 +4,7 @@ namespace denis909\yii;
 
 use Exception;
 
-class AttributeTypecastBehavior extends AttributeTypecastBehavior
+class TypecastBehavior extends AttributeTypecastBehavior
 {
 
     public $typecastAfterValidate = false;
