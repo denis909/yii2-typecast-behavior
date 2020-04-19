@@ -2,6 +2,8 @@
 
 namespace denis909\yii;
 
+use Exception;
+
 class AttributeTypecastBehavior extends AttributeTypecastBehavior
 {
 
@@ -12,6 +14,16 @@ class AttributeTypecastBehavior extends AttributeTypecastBehavior
     public $typecastAfterSetAttributes = false;
 
     public $typecastSetAttributes = true;
+
+    public function init()
+    {
+        parent::init();
+
+        if (!($this->owner instanceof ActiveRecord))
+        {
+            throw new Exception('Owner is not an instance of ' . ActiveRecord::class);
+        }
+    }
 
     /**
      * {@inheritdoc}
